@@ -1,0 +1,17 @@
+.pro{
+    align-content: center;
+}
+
+.product{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+    padding: 20px;
+    width: 100%;
+    max-height: 400px;
+    min-width: 100px;
+    background-color:white;
+    z-index: 1;
+}
