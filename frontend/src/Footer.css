@@ -1,29 +1,10 @@
 .footer{
     display: flex;
     flex: 1;
+    justify-content: center;
     background-color:blue;
-    bottom: 0;
+    color: yellow;
+    bottom: 0 !important;
     width: 100%;
-}
-
-.footerBlock{
-    display: flex;
-    width: 100%;
-    margin-left: 10px;
-}
-
-.footerBlock_data{
-    font-size: 10px;
-    font-weight: 500;
-    color:white;
-    margin-right: 10px;
-    margin-left: 20px;
-}
-
-.line{
-    border-left: 1px solid white;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 5px;
 }
 

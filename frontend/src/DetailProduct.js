@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { GlobalState } from './GlobalState'
 import ProductItem from './ProductItem'
+import Button from '@material-ui/core/Button';
 
 function DetailProduct() {
     const params = useParams()
@@ -26,25 +27,33 @@ function DetailProduct() {
 
     return (
         <div>
-            <div>
-            <img src={detailProduct.images.url} />
-            <h2>{detailProduct.title}</h2>
-            <h2>{detailProduct.product_id}</h2>
-            <h2>{detailProduct.price}</h2>
-            <h2>{detailProduct.desciption}</h2>
-            <h2>{detailProduct.content}</h2>
-            <h2>{detailProduct.solid}</h2>
-            <Link to="/cart">Buy Now</Link>
-            
+            <h2 className="detail__title">{detailProduct.title}</h2>
+            <div className="detail__product">
+                <div>
+                    <img className="detail__image" src={detailProduct.images.url} />
+                </div>
+                <div>
+                    <p>{detailProduct.product_id}</p>
+                    <p>{detailProduct.price}</p>
+                    <p>{detailProduct.desciption}</p>
+                    <p>{detailProduct.content}</p>
+                    <p>{detailProduct.solid}</p>
+                    <Link to="/cart"><Button variant="contained" color="primary">Buy Now</Button></Link>
+                </div>
             </div>
+
             <div>
-                <h2>Related Product</h2>
-                {
-                    products.map(product => {
-                        return product.category === detailProduct.category
-                        ? <ProductItem key={product._id} product={product} /> : null
-                    })
-                }
+                <h2 className="pro_title">Related Product</h2>
+                <div className="pro">
+                    <div className="Product">
+                        {
+                            products.map(product => {
+                                return product.category === detailProduct.category
+                                    ? <ProductItem key={product._id} product={product} /> : null
+                            })
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     )

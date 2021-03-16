@@ -1,0 +1,17 @@
+.categories__title{
+    margin-left: 5px;
+    color: blue;
+    font-size: 25px;
+    text-decoration: underline red;
+}
+
+.categories__form{
+    margin-left: 10px;
+}
+
+.categories__all{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}

@@ -16,7 +16,7 @@ function App() {
         <div className="App">
           <Header />
           <Pages />
-         <Footer />
+          <Footer />
         </div>
       </Router>
     </DataProvider>

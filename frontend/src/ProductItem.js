@@ -5,27 +5,26 @@ import './ProductItem.css'
 function ProductItem({ product, isAdmin, handleCheck, addToCart }) {
 
     return (
-        <div className="product">
-            <div>
-                {
-                    isAdmin && <input type="checkbox" checked={product.checked}
-                        onChange={() => handleCheck(product._id)} />
-                }
-                <h2>{product.title}</h2><span>{product.price}</span>
-                <p>{product.content}</p>
-            </div>
+        <div className="product__card">
+            {
+                isAdmin && <input type="checkbox" checked={product.checked}
+                    onChange={() => handleCheck(product._id)} />
+            }
+            <h2>{product.title}</h2>
+            <span>{product.price}</span>
+            <p>{product.content}</p>
             <img src={product.images.url} height="300px" width="200px" alt="" />
-            <div>
+            <div className="bttt">
                 {
                     isAdmin ?
                         <>
-                            <Link to="#">Delete</Link>
-                            <Link to="#">Edit</Link>
+                            <Link className="bttt__l" to="#">Delete</Link>
+                            <Link className="bttt__l" to={`/edit_product/${product._id}`}>Edit</Link>
                         </>
                         :
                         <>
-                            <Link to="#" onClick={() => addToCart(product)}>Buy</Link>
-                            <Link to={`/detail/${product._id}`}>View</Link>
+                            <Link className="bttt__l" to="#" onClick={() => addToCart(product)}>Buy</Link>
+                            <Link className="bttt__l" to={`/detail/${product._id}`}>View</Link>
                         </>
                 }
             </div>

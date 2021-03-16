@@ -9,8 +9,8 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 function Header() {
     const state = useContext(GlobalState)
-    const [isLogged, setIsLogged] = state.UserAPI.isLogged
-    const [isAdmin, setIsAdmin] = state.UserAPI.isAdmin
+    const [isLogged] = state.UserAPI.isLogged
+    const [isAdmin] = state.UserAPI.isAdmin
     const [cart] = state.UserAPI.cart
 
     const logout = async () => {
@@ -23,8 +23,7 @@ function Header() {
         return (
             <>
                 <Link to="/create_product"><span className="header__login">Create_Product</span></Link>
-                <Link to="/create_category"><span className="header__login">Create_Category</span></Link>
-                <Link to="/category"><span className="header__login">Categories</span></Link>
+                <Link to="/categories"><span className="header__login">Categories</span></Link>
                 <Link to="/" onClick={logout}><span className="header__login"><span className="header__login">logout</span></span></Link>
             </>
         )
@@ -38,12 +37,12 @@ function Header() {
 
                 {
                     isAdmin ? ''
-                    :<Link to="/Cart">
-                    <div className="header__basket">
-                        <ShoppingBasketIcon />
-                        <span className="header__basketCount">{cart.length}</span>
-                    </div>
-                </Link>
+                        : <Link to="/Cart">
+                            <div className="header__basket">
+                                <ShoppingBasketIcon />
+                                <span className="header__basketCount">{cart.length}</span>
+                            </div>
+                        </Link>
                 }
             </>
         )
@@ -64,7 +63,6 @@ function Header() {
         )
     }
 
-    console.log(isAdmin)
     return (
         <div className="header">
             <Link to="/"><h2 className="header__brand">{isAdmin ? 'Admin' : 'Product'}</h2></Link>

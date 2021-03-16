@@ -3,8 +3,8 @@ const Category = require('../models/categoryModel');
 
 const categoryController = {
     getCategories: async (req, res) => {
-        const categories = await Category.findOne()
-        return res.json({ categories })
+        const categories = await Category.find()
+        return res.json(categories)
     },
     createCategory: async (req, res) => {
         try {
@@ -16,7 +16,7 @@ const categoryController = {
             }
             const newCategory = new Category({ name })
             await newCategory.save()
-            return res.json('new category is created')
+            res.json('new category is created')
         } catch (err) {
             return res.status(500).json({ msg: err.message })
         }

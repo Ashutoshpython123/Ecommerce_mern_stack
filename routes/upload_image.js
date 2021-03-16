@@ -14,7 +14,7 @@ cloudinary.config({
 
 
 //upload images
-router.post('/upload', (req, res) => {
+router.post('/upload',auth, authAdmin, (req, res) => {
     try {
         console.log(req.files)
         if (!req.files || Object.keys(req.files).length === 0) {
@@ -47,7 +47,7 @@ router.post('/upload', (req, res) => {
     }
 })
 
-router.post('/delete', (req, res) => {
+router.post('/delete',auth, authAdmin, (req, res) => {
     try{
         const {public_id} = req.body;
         if(!public_id){

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Button from '@material-ui/core/Button';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import './Login.css'
 
 
 
@@ -37,9 +38,9 @@ function Login() {
                         <Button type="submit" fullWidth variant="contained" color="primary">
                             Login
                         </Button>
-                        <Button type="submit" fullWidth variant="contained" color="primary">
-                           <Link to="/Register">Register</Link>
-                        </Button>
+                        <Link to="/Register"> <Button type="submit" fullWidth variant="contained" color="primary">
+                           Register
+                        </Button></Link>
 
                     </div>
                 </div>
